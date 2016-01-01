@@ -3,14 +3,15 @@ var Link = require('./linkModel.js');
     util = require('../config/utils.js');
 
 
-var findLink = Q.denodify(Link.findOne, Link);
-var createLink = Q.denodify(Link.create, Link);
-var findAllLinks = Q.denodify(Link.find, Link);
+var findLink = Q.nbind(Link.findOne, Link);
+var createLink = Q.nbind(Link.create, Link);
+var findAllLinks = Q.nbind(Link.find, Link);
 
 module.exports = {
 
   allLinks: function (req, res, next) {
-  findAllLink({})
+    console.log("all links was invoked")
+  findAllLinks({})
     .then(function (links) {
       res.json(links);
     })
@@ -20,6 +21,7 @@ module.exports = {
   },
 
   newLink: function (req, res, next) {
+    console.log("url from newlinks method",req.body.url);
     var url = req.body.url;
     if (!util.isValidUrl(url)) {
       return next(new Error('Not a valid url'));
