@@ -20,7 +20,5 @@
   "requireSpaceBeforeBlockStatements": true,
   "requireSpaceBeforeObjectValues": true,
   "requireSpaceBetweenArguments": true,
-  "requireSpacesInForStatement": true,
-  "requireSpacesInFunctionDeclaration": {"beforeOpeningCurlyBrace": false},
-  "requireSpacesInFunctionExpression": {"beforeOpeningCurlyBrace": false}
+  "requireSpacesInForStatement": true
 }
