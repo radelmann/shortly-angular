@@ -32,7 +32,10 @@ describe('LinksController', function () {
 
   it('should call `Links.getAll()` when controller is loaded', function () {
     sinon.spy(Links, 'getAll');
-    $httpBackend.expectGET('/api/links').respond(200);
+    $httpBackend.expectGET('/api/links').respond(200 
+
+
+);
 
     createController();
     $httpBackend.flush();

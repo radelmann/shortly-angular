@@ -1,6 +1,6 @@
 var Link = require('./linkModel.js');
-    Q = require('q');
-    util = require('../config/utils.js');
+Q = require('q');
+util = require('../config/utils.js');
 
 
 var findLink = Q.nbind(Link.findOne, Link);
@@ -10,24 +10,25 @@ var findAllLinks = Q.nbind(Link.find, Link);
 module.exports = {
 
   allLinks: function (req, res, next) {
-    console.log("all links was invoked")
-  findAllLinks({})
-    .then(function (links) {
-      res.json(links);
-    })
-    .fail(function (error) {
-      next(error);
-    });
+    findAllLinks({})
+      .then(function (links) {
+        res.json(links);
+      })
+      .fail(function (error) {
+        next(error);
+      });
   },
 
   newLink: function (req, res, next) {
-    console.log("url from newlinks method",req.body.url);
+    console.log("url from newlinks method", req.body.url);
     var url = req.body.url;
     if (!util.isValidUrl(url)) {
       return next(new Error('Not a valid url'));
     }
 
-    findLink({url: url})
+    findLink({
+        url: url
+      })
       .then(function (match) {
         if (match) {
           res.send(match);
@@ -57,7 +58,9 @@ module.exports = {
   },
 
   navToLink: function (req, res, next) {
-    findLink({code: req.params.code})
+    findLink({
+        code: req.params.code
+      })
       .then(function (link) {
         if (!link) {
           return next(new Error('Link not added yet'));

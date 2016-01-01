@@ -21,6 +21,6 @@
   "requireSpaceBeforeObjectValues": true,
   "requireSpaceBetweenArguments": true,
   "requireSpacesInForStatement": true,
-  "requireSpacesInFunctionDeclaration": {"beforeOpeningCurlyBrace": true},
-  "requireSpacesInFunctionExpression": {"beforeOpeningCurlyBrace": true}
+  "requireSpacesInFunctionDeclaration": {"beforeOpeningCurlyBrace": false},
+  "requireSpacesInFunctionExpression": {"beforeOpeningCurlyBrace": false}
 }
