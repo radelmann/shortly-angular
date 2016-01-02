@@ -1,6 +1,17 @@
 <div id='container'>
 <!-- Your code here -->
+  <form name="linkSubitForm" ng-submit='submitLink()'>
+      <input class='text' type='text' name='url' ng-model='link.url'>
+      <button>submit</button>
+  </form>
+  <img class='spinner' src='/spiffygif_46x46.gif'>
+  <div class='message'></div>
 
 </div>
 
-
+<!-- <form name="signinForm" ng-submit='signin()'>
+    <input type='text'ng-model='user.username'>
+    <input type="password" ng-model='user.password'>
+    <button>signin</button>
+  </form>
+ -->

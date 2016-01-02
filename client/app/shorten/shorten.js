@@ -2,5 +2,10 @@ angular.module('shortly.shorten', [])
 
 .controller('ShortenController', function ($scope, $location, Links) {
   $scope.link = {};
-  $scope.addLink = Links.addOne;
+  $scope.submitLink = function(){
+    Links.addOne($scope.link);
+  };
+
 });
+
+///handle submit
