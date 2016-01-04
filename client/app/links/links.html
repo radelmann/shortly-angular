@@ -1,10 +1,19 @@
 <div id='container' ng-model='shortly.links' >
-  <!-- Your html here -->
-  <div class='link' ng-repeat = "link in data.links">
+  <div class='navigation'>
+  <ul>
+    <li><a href='#/links' class='index'>All Links</a></li>
+    <li><a href='#/shorten' class='create'>Shorten</a></li>
+  </ul>
+  </div>
+  <form class="form-inline">
+      <input ng-model="query" type="text"
+        placeholder="Filter by" autofocus>
+    </form>
+  <div class='link' ng-repeat = "link in data.links | filter:query | orderBy:'-visits'">
     <img src='assets/redirect_icon.png'/>
     <div class='visits'><span class='count'> {{ link.visits }}</span>Visits</div>
     <div class='title'>{{ link.title }}</div>
     <div class='original'>{{ link.url }}</div>
-    <a href='{{base_url}}/{{code}}'>{{ link.base_url }}/{{link.code}}</a>
+    <a href='{{ link.base_url }}/{{ link.code }}'>{{ link.base_url }}/{{link.code}}</a>
   </div>
 </div>
